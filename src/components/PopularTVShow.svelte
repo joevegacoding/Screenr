@@ -1,10 +1,7 @@
 <script>
-	export let popular;
-	export let popularTV;
-	import TVShowCard from './TVShowCard.svelte';
+	export let popularTVShow;
 	import MovieCard from './MovieCard.svelte';
 	import Tabs from '../components/Tabs.svelte';
-	import { fly } from 'svelte/transition';
 	let items = ['Movies', 'TV Shows'];
 	let activeItem = 'Movies';
 
@@ -19,19 +16,9 @@
 </div>
 
 <div class="popular-movies">
-	{#if activeItem === 'Movies'}
-		{#each popular as movie}
-			<div in:fly={{ z: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
-				<MovieCard {movie} />
-			</div>
-		{/each}
-	{:else if activeItem === 'TV Shows'}
-		{#each popularTV as tv}
-			<div in:fly={{ z: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
-				<TVShowCard {tv} />
-			</div>
-		{/each}
-	{/if}
+	{#each popularTVShow as tvShow}
+		<MovieCard {tvShow} />
+	{/each}
 </div>
 
 <style>

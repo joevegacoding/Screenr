@@ -23,6 +23,7 @@
 
 <div class="searched-movies">
 	{#each searchedMovie as movie}
+		<h1>Found: {movie.count}</h1>
 		<MovieCard {movie} />
 	{/each}
 </div>

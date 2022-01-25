@@ -44,6 +44,22 @@
 		width: 30%;
 		margin: 1rem;
 	}
+	@media screen and (max-width: 768px) {
+		.search {
+			position: absolute;
+			width: 58%;
+
+			margin-left: 7rem;
+		}
+	}
+	/* @media screen and (max-width: 1080px) {
+		.search {
+			position: absolute;
+			width: 67%;
+
+			margin-left: 6.2rem;
+		}
+	} */
 	button {
 		font-size: 0.7rem;
 		padding: 0rem 1rem;
@@ -71,7 +87,28 @@
 		font-weight: bold;
 		background: rgb(63, 63, 63);
 		border-radius: 10px;
-		padding: 1rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		input {
+			padding: 0.4rem 0.5rem;
+		}
+		button {
+			font-size: 0.7rem;
+			padding: 0rem 0.5rem;
+			background: rgb(96, 110, 201);
+			color: white;
+			font-weight: bold;
+			border: none;
+			position: absolute;
+			bottom: 50%;
+			right: 0;
+			transform: translate(0, 50%);
+			height: 104%;
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+			cursor: pointer;
+		}
 	}
 
 	label {

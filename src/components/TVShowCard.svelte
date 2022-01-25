@@ -1,18 +1,14 @@
 <script>
-	export let movie;
-
-	function movieClicked() {
-		console.log(movie.id);
-	}
+	export let tv;
 </script>
 
 <div class="movie-card">
-	<a sveltekit:prefetch sveltekit:noscroll href={`/movie/${movie.id}`}>
-		<img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+	<a sveltekit:prefetch sveltekit:noscroll href={`/tv/${tv.id}`}>
+		<img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} alt={tv.name} />
 	</a>
 	<div class="description">
-		<h2>{movie.title}</h2>
-		<p>{movie.release_date}</p>
+		<h2>{tv.name}</h2>
+		<p>{tv.first_air_date}</p>
 	</div>
 </div>
 
