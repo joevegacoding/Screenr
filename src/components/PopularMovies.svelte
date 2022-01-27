@@ -46,6 +46,12 @@
 		padding: 0rem 1rem 0.8rem 3.5rem;
 	}
 
+	@media screen and (max-width: 768px) {
+		.header-section {
+			padding: 0rem 1rem 0.8rem 2rem;
+		}
+	}
+
 	.popular-movies {
 		margin: 0 5%;
 

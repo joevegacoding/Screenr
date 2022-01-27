@@ -1,12 +1,13 @@
 <script context="module">
 	export async function load({ fetch, params }) {
+		const apiKey = import.meta.env.VITE_API_KEY;
 		const res =
-			await fetch(`https://api.themoviedb.org/3/search/movie?api_key=6c585d930b6b55e72e3e31c6506a6ee4&language=en-US&query=${params.id}&page=1&include_adult=false
+			await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${params.id}&page=1&include_adult=false
 `);
 
 		const data = await res.json();
 
-		console.log(data);
+		console.log(data.results.count);
 
 		if (res.ok) {
 			return {
@@ -19,11 +20,12 @@
 <script>
 	import MovieCard from '../../components/MovieCard.svelte';
 	export let searchedMovie;
+	import.meta.env.VITE_API_KEY;
 </script>
 
+<h2>Found {searchedMovie.length} items</h2>
 <div class="searched-movies">
 	{#each searchedMovie as movie}
-		<h1>Found: {movie.count}</h1>
 		<MovieCard {movie} />
 	{/each}
 </div>

@@ -1,186 +1,3 @@
-<!-- <script>
-	import global_style from '../global_style.css';
-	import SearchMovies from '../components/SearchMovies.svelte';
-	import Logo from '../assets/Logo.png';
-
-	let navOpen = false;
-
-	function handleNav() {
-		navOpen = !navOpen;
-		// 		navWidth === 0 ? navWidth = 40 : navWidth = 0;
-	}
-
-	function handleNavWithKey(e) {
-		console.log(e.code);
-		if (e.code === 'F1') {
-			navOpen = !navOpen;
-		}
-	}
-</script>
-
-<nav>
-	<div class="logo">
-		<a href="/"><img src={Logo} alt="" /></a>
-	</div>
-
-	<SearchMovies />
-
-	<ul class="nav-links">
-		<li><a href="">Movies</a></li>
-		<li><a href="">Tv Shows</a></li>
-		<li><a href="">People</a></li>
-		<li><a href="">News</a></li>
-	</ul>
-	<div id="mySidenav" class="sidenav" class:open={navOpen}>
-		<a href="#a" class="closebtn" on:click={handleNav}>&times;</a>
-		<a href="#b">About</a>
-		<a href="#c">Services</a>
-		<a href="#d">Clients</a>
-		<a href="#e">Contact</a>
-	</div>
-
-	<div class="burger" class:change={navOpen} on:click={handleNav}>
-		<div class="line1" />
-		<div class="line2" />
-		<div class="line3" />
-	</div>
-</nav>
-<div class="line" />
-
-<style>
-	nav {
-		display: flex;
-		min-height: 10vh;
-		align-items: center;
-		justify-content: space-between;
-		background-color: #151515;
-		margin-bottom: 7vh;
-		padding: 5px 15px;
-	}
-	.logo {
-		color: #fff;
-		margin-left: 17px;
-	}
-
-	.logo img {
-		width: 50%;
-	}
-
-	a {
-		font-size: 1rem;
-		font-weight: bold;
-		font-family: 'Nunito', sans-serif;
-		text-decoration: none;
-		color: #fff;
-		letter-spacing: 3px;
-	}
-
-	.nav-links {
-		display: flex;
-		justify-content: space-between;
-		width: 30%;
-		list-style: none;
-		margin-right: 5rem;
-	}
-	@media screen and (max-width: 1080px) {
-		.nav-links {
-			width: 35%;
-			margin-right: 2rem;
-		}
-	}
-
-	.nav-links a {
-		font-size: 0.9rem;
-	}
-	.burger {
-		display: none;
-	}
-	.burger div {
-		width: 25px;
-		height: 3px;
-		background-color: #fff;
-		margin: 5px 2px 5px 5px;
-	}
-
-	@media screen and (max-width: 768px) {
-		.nav-links {
-			position: absolute;
-			right: 0px;
-			height: 92vh;
-			top: 8vh;
-			background-color: #151515;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-right: 0px;
-			width: 50%;
-			transform: translateX(100%);
-			transition: transform 0.5s ease-in;
-		}
-
-		.nav-links li {
-			opacity: 0;
-		}
-
-		.burger {
-			display: block;
-		}
-
-		.logo {
-			margin-left: 0;
-		}
-
-		.logo img {
-			width: 40%;
-		}
-	}
-
-	.sidenav {
-		height: 100%;
-		width: 0; /* 0 width - change this with JavaScript */
-		position: fixed;
-		z-index: 1;
-		top: 0;
-		left: 0;
-		background-color: #111;
-		overflow-x: hidden; /* Disable horizontal scroll */
-		padding-top: 60px;
-		transition: 0.5s;
-	}
-
-	/* The navigation menu links */
-	.sidenav a {
-		padding: 8px 8px 8px 32px;
-		text-decoration: none;
-		font-size: 25px;
-		color: #818181;
-		display: block;
-		transition: 0.3s;
-	}
-
-	/* When you mouse over the navigation links, change their color */
-	.sidenav a:hover {
-		color: #f1f1f1;
-	}
-
-	/* Position and style the close button (top right corner) */
-	.sidenav .closebtn {
-		position: absolute;
-		top: 0;
-		right: 25px;
-		font-size: 36px;
-		margin-left: 50px;
-	}
-
-	@media screen and (max-height: 450px) {
-		.sidenav {
-			padding-top: 15px;
-		}
-		.sidenav a {
-			font-size: 18px;
-		}
-	}
-</style> -->
 <script>
 	// 	let navWidth = 0;
 	let navOpen = false;
@@ -196,16 +13,6 @@
 			navOpen = !navOpen;
 		}
 	}
-
-	// const openNav = () => {
-	// 	navOpen = !navOpen;
-	// 	navWidth = 40;
-	// }
-
-	// const closeNav = () => {
-	// 	navOpen = !navOpen;
-	// 	navWidth = 0;
-	// }
 
 	import global_style from '../global_style.css';
 	import SearchMovies from '../components/SearchMovies.svelte';
@@ -250,13 +57,14 @@
 		align-items: center;
 		justify-content: space-between;
 		background-color: #151515;
-		margin-bottom: 7vh;
+		margin-bottom: 4vh;
 		padding: 5px 15px;
 	}
 
 	.logo {
 		color: #fff;
 		margin-left: 17px;
+		display: flex;
 	}
 
 	.logo img {
@@ -269,7 +77,8 @@
 		font-family: 'Nunito', sans-serif;
 		text-decoration: none;
 		color: #fff;
-		letter-spacing: 3px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	.nav-links {
@@ -284,6 +93,19 @@
 		.nav-links {
 			width: 35%;
 			margin-right: 2rem;
+		}
+	}
+
+	@media screen and (max-width: 820px) {
+		.nav-links {
+			width: 65%;
+			margin-right: 0.5rem;
+		}
+		.logo img {
+			width: 80%;
+		}
+		.logo {
+			color: #fff;
 		}
 	}
 
@@ -310,7 +132,7 @@
 		}
 
 		.logo img {
-			width: 40%;
+			width: 60%;
 		}
 	}
 
@@ -356,23 +178,23 @@
 
 	/* The side navigation menu */
 	.sidenav {
-		height: 100%;
+		height: 110%;
 		width: 0;
 		position: fixed;
 		z-index: 1;
 		top: 0;
 		left: 0;
 		background-color: #151515f7;
-		overflow-x: hidden; /* Disable horizontal scroll */
-		padding-top: 70px;
+		overflow-x: hidden; /* Disables horizontal scroll */
+		padding-top: 80px;
 		transition: 0.5s;
 	}
 
 	/* The navigation menu links */
 	.sidenav a {
-		padding: 15px 8px 15px 32px;
+		padding: 20px 8px 20px 32px;
 		text-decoration: none;
-		font-size: 25px;
+		font-size: 15px;
 		color: #fff;
 		display: block;
 		transition: 0.3s;

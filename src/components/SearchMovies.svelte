@@ -111,6 +111,18 @@
 		}
 	}
 
+	@media screen and (max-width: 820px) {
+		.search {
+			width: 65%;
+			padding-right: 2rem;
+			margin-left: 5.3rem;
+		}
+
+		input {
+			padding-left: 1px;
+		}
+	}
+
 	label {
 		position: absolute;
 		font-size: 0.8rem;
