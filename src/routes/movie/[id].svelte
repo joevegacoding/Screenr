@@ -8,13 +8,19 @@
 		const res =
 			await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${apiKey}&language=en-US
 `);
+
+		const castRes = await fetch(
+			`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${apiKey}&language=en-US`
+		);
 		const movieDetail = await res.json();
-
+		const castDetail = await castRes.json();
+		const casts = castDetail.cast;
 		console.log(movieDetail);
+		console.log(casts);
 
-		if (res.ok) {
+		if (res.ok && castRes.ok) {
 			return {
-				props: { movieDetail }
+				props: { movieDetail, castDetail }
 			};
 		}
 	}
@@ -22,6 +28,7 @@
 
 <script>
 	export let movieDetail;
+	export let castDetail;
 	const number = movieDetail.budget;
 	import { fly } from 'svelte/transition';
 	import.meta.env.VITE_API_KEY;
@@ -54,10 +61,18 @@
 		</div>
 	</main>
 </div>
-<div class="cast-container">
-	<div class="cast-item">
-		<img src="https://picsum.photos/200/300?t=1" />
-		<h2>Leonardo Dicaprio</h2>
+<div>
+	<h2>Cast</h2>
+
+	<div class="cast-container">
+		{#each castDetail.cast as cast}
+			<div {cast} class="cast-item">
+				<img src={`https://image.tmdb.org/t/p/original${cast.profile_path}`} />
+				<h2>{cast.name}</h2>
+				<p>{cast.character}</p>
+				<!-- <h2>fds</h2> -->
+			</div>
+		{/each}
 	</div>
 </div>
 
@@ -71,7 +86,7 @@
 		display: flex;
 		overflow-x: auto;
 		padding: 3rem 2rem;
-		margin: 0 5rem;
+		margin: 0 1.5rem;
 	}
 	.cast-container::-webkit-scrollbar {
 		display: none;
@@ -84,7 +99,7 @@
 		margin-right: 8px;
 	}
 	.cast-container .cast-item img {
-		height: 80%;
+		height: 200px;
 		border-radius: 15px;
 		cursor: pointer;
 		filter: contrast(90%);
