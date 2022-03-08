@@ -5,8 +5,6 @@ Screenr is a web application that allows you to browse movies and tv shows. In a
 
 Building this application was an opportunity for me to try out Svelte. Verdict? Svelte is amazing to work with. It's intuitive, fast and powerful, easy to learn and fun to work with.
 
-## 🚀 [Live View]()
-
 ## Technology
 
 - [Svelte](https://svelte.dev/) 
