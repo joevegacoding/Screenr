@@ -28,7 +28,7 @@
 
 	<ul class="nav-links">
 		<li><a href="">Movies</a></li>
-		<li><a href="">TV Shows</a></li>
+		<li><a href="about">TV Shows</a></li>
 		<li><a href="">People</a></li>
 		<li><a href="">News</a></li>
 	</ul>

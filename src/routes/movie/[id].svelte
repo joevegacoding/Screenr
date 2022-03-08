@@ -1,6 +1,6 @@
 <script context="module">
 	import Number from './Number.svelte';
-
+	import chevron from '../../assets/chevron-right.svg';
 	let locale;
 	export async function load({ fetch, params }) {
 		const apiKey = import.meta.env.VITE_API_KEY;
@@ -16,7 +16,7 @@
 		const castDetail = await castRes.json();
 		const casts = castDetail.cast;
 		console.log(movieDetail);
-		console.log(casts);
+		console.log(castDetail.crew[1]);
 
 		if (res.ok && castRes.ok) {
 			return {
@@ -30,10 +30,14 @@
 	export let movieDetail;
 	export let castDetail;
 	const number = movieDetail.budget;
+	import CastCard from '../../components/CastCard.svelte';
 	import { fly } from 'svelte/transition';
 	import.meta.env.VITE_API_KEY;
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+</svelte:head>
 <div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }} class="card">
 	<header class="card__gallery">
 		<div class="card__gallery-item card__gallery-item__main">
@@ -51,6 +55,9 @@
 		/>
 		<div class="card__user-info">
 			<h2 class="card__user-info__name">{movieDetail.title}</h2>
+			{#each castDetail.crew as crew}
+				<p>{crew.job === 'Director' ? `Director: ${crew.name}` : ''}</p>
+			{/each}
 
 			<p class="card__user-info__stats">⭐️ {movieDetail.vote_average}/10</p>
 			<p class="card__user-info__desc">{movieDetail.tagline}</p>
@@ -61,32 +68,79 @@
 		</div>
 	</main>
 </div>
-<div>
-	<h2>Cast</h2>
+<div class="class-section">
+	<div class="section-title">
+		<h2>Cast</h2>
 
+		<a class="more-section" href="">
+			<p>More</p>
+			<img src={chevron} alt="" />
+		</a>
+	</div>
 	<div class="cast-container">
 		{#each castDetail.cast as cast}
-			<div {cast} class="cast-item">
-				<img src={`https://image.tmdb.org/t/p/original${cast.profile_path}`} />
-				<h2>{cast.name}</h2>
-				<p>{cast.character}</p>
-				<!-- <h2>fds</h2> -->
-			</div>
+			<CastCard {cast} />
 		{/each}
+	</div>
+	<div>
+		<a class="section-title crew-more" href="">
+			<h3>Crew and more</h3>
+			<img src={chevron} alt="" />
+		</a>
 	</div>
 </div>
 
 <style>
-	h1 {
-		text-align: center;
-		margin-bottom: 2rem;
-		color: #1abc9c;
+	.class-section {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem 5.2%;
+		margin: 0 2%;
 	}
+
+	.section-title {
+		display: flex;
+		justify-content: space-between;
+		text-decoration: none;
+	}
+
+	.crew-more {
+		text-decoration: none;
+	}
+
+	.crew-more h2 {
+		color: #151515;
+	}
+
+	.crew-more {
+		justify-content: flex-start;
+	}
+
+	.section-title h2 {
+		font-size: 1.6rem;
+		margin: 1%;
+		color: #151515;
+	}
+
+	.section-title h3 {
+		padding: 3% 0;
+		font-size: 1.4rem;
+		color: rgb(0, 0, 147);
+		/* margin-bottom: 1rem; */
+	}
+
+	.more-section {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		color: #151515;
+	}
+
 	.cast-container {
 		display: flex;
 		overflow-x: auto;
-		padding: 3rem 2rem;
-		margin: 0 1.5rem;
 	}
 	.cast-container::-webkit-scrollbar {
 		display: none;
@@ -213,6 +267,10 @@
 		padding: 30px;
 		display: flex;
 		align-items: center;
+	}
+
+	.card__user-info p {
+		margin-bottom: 3%;
 	}
 	@media screen and (max-width: 579px) {
 		.card__user {

@@ -1,5 +1,5 @@
 <script context="module">
-	import Number from './Number.svelte';
+	// import Number from './Number.svelte';
 	//634649
 
 	let locale;
