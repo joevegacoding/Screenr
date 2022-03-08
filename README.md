@@ -1,5 +1,5 @@
-<p align="center"><img src="https://github.com/joevegacoding/granulecoffeeroaster/blob/main/images/logoimage.png" alt="drawing" width="60%" /><p/>
-# Basic Overview
+<p align="center"><img src="https://github.com/joevegacoding/Screenr/blob/main/Screenshots/cover_image.png" alt="drawing" width="60%" /><p/>
+#Basic Overview
 
 Screenr is a web application that allows you to browse movies and tv shows. In addition, you can view a basic set of information for each one including a short description, the cast, the year released and more!
 
@@ -24,5 +24,8 @@ This project is fully open source, so if you want to improve it and add more to 
 
 ## Screenshots
 
-<p align="center"><img src="" alt="drawing" width="80%" /><p/>
-<p align="center"><img src="" alt="drawing" width="80%" /><p/>
+Desktip View             |  MobileView
+:-------------------------:|:-------------------------:
+![](https://github.com/joevegacoding/Screenr/blob/main/Screenshots/DesktopImage.png)  |  ![](https://github.com/joevegacoding/Screenr/blob/main/Screenshots/MobileImage.png)
+
+
