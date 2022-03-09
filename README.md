@@ -16,7 +16,7 @@ Building this application was an opportunity for me to try out Svelte. Verdict? 
 
 ### Previous iOS Version
 
-I built an iOS app previously using the same API. You can find it [here]()
+I built an iOS app previously using the same API. You can find it [here](https://github.com/joevegacoding/MovieShelf)
 
 This project is fully open source, so if you want to improve it and add more to it, you're more than welcome!
 
