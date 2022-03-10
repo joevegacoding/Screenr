@@ -22,7 +22,7 @@ This project is fully open source, so if you want to improve it and add more to 
 
 ## Screenshots
 
-Desktip View             |  MobileView
+Desktop View             |  MobileView
 :-------------------------:|:-------------------------:
 ![](https://github.com/joevegacoding/Screenr/blob/main/Screenshots/DesktopImage.png)  |  ![](https://github.com/joevegacoding/Screenr/blob/main/Screenshots/MobileImage.png)
 
